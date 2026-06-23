@@ -15,6 +15,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+    font-face {
+        font-family: 'Boecklins Universe';
+        src: url('boecklins_universe.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     /* ─── RESET ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
@@ -40,11 +47,14 @@
       --nav-h:       56px;
 
       /* Font roles */
-      --font-title:   'Poiret One', sans-serif;          /* fekete szövegek */
-      --font-gold:    'Playfair Display SC', serif;      /* arany/bézs szövegek */
-      --font-brand:   'Boecklin Universe', serif;        /* CAFE CORSO főcím */
-      --font-desc:    'Cormorant Garamond', serif;       /* leírások, italic */
-      --font-util:    'Montserrat', sans-serif;          /* nav, allergen */
+      --font-title:   'Poiret One', sans-serif;
+      --font-gold:    'Playfair Display SC', serif; 
+      
+      /* MOST MÁR MŰKÖDNI FOG AZ EREDETI: */
+      --font-brand:   'Boecklins Universe', serif; 
+      
+      --font-desc:    'Cormorant Garamond', serif;       
+      --font-util:    'Montserrat', sans-serif;          
     }
     h2, h3, .text-title {
         font-family: var(--font-title);
