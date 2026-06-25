@@ -5,34 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
   <title>Cafe Corso — Menu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Poiret One = fekete szövegek (item nevek, section title) -->
-  <!-- Playfair Display SC = Breamcatcher közelítő (arany/bézs szövegek, section gold titles) -->
-  <!-- Cinzel Decorative = Boecklin Universe közelítő (CAFE CORSO főcím) -->
-  <!-- Cormorant Garamond = leírások, italic -->
-  <!-- Montserrat = utility (nav, allergen) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
+    /* ─── LOCAL FONTS ─────────────────────────────────── */
     @font-face {
-        font-family: 'Boecklins Universe';
-        src: url('boecklins_universe.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
+      font-family: 'Boecklins Universe';
+      src: url('boecklins_universe.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Breamcatcher';
+      src: url('breamcatcher.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Poiret One';
+      src: url('PoiretOne.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
 
     /* ─── RESET ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: var(--font-desc);
+      font-family: 'Poiret One', sans-serif;
       background: #FAFAF8;
       color: #1A1A1A;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
-    }  
+    }
 
     /* ─── TOKENS ─────────────────────────────────────── */
     :root {
@@ -46,43 +51,20 @@
       --ink-light:   #6A6A6A;
       --nav-h:       56px;
 
-      /* Font roles */
-      --font-title:   'Poiret One', sans-serif;
-      --font-gold:    'Playfair Display SC', serif; 
-      
-      /* MOST MÁR MŰKÖDNI FOG AZ EREDETI: */
-      --font-brand:   'Boecklins Universe', serif; 
-      
-      --font-desc:    'Cormorant Garamond', serif;       
-      --font-util:    'Montserrat', sans-serif;          
+      --font-brand:  'Boecklins Universe', serif;
+      --font-section:'Breamcatcher', serif;
+      --font-body:   'Poiret One', sans-serif;
     }
-    h2, h3, .text-title {
-        font-family: var(--font-title);
-    }
-
-    .text-gold-style {
-        font-family: var(--font-gold);
-        color: var(--gold); 
-    }
-
-    h1, .brand-title {
-        font-family: var(--font-brand);
-    }
-
-    nav, .nav-link, .allergen-info {
-        font-family: var(--font-util);
-    }
-    
 
     /* ─── HEADER ─────────────────────────────────────── */
     .site-header {
       text-align: center;
-      padding: 40px 24px 24px;
+      padding: 44px 24px 28px;
       background: var(--paper);
       border-bottom: 1px solid rgba(197,160,89,0.3);
     }
     .site-header__eyebrow {
-      font-family: var(--font-util);
+      font-family: var(--font-body);
       font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.32em;
@@ -92,25 +74,25 @@
     }
     .site-header__name {
       font-family: var(--font-brand);
-      font-size: clamp(1.7rem, 7vw, 2.5rem);
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: clamp(2rem, 8vw, 3rem);
+      font-weight: normal;
+      letter-spacing: 0.06em;
       color: var(--ink);
       line-height: 1.1;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .site-header__sub {
-      font-family: var(--font-desc);
-      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
       font-style: italic;
       color: var(--ink-light);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.12em;
     }
     .header-rule {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 16px auto 0;
+      margin: 18px auto 0;
       max-width: 240px;
     }
     .header-rule::before,
@@ -149,10 +131,9 @@
       align-items: center;
       padding: 0 14px;
       height: var(--nav-h);
-      font-family: var(--font-util);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--ink-light);
       text-decoration: none;
@@ -168,56 +149,54 @@
 
     /* ─── MAIN CONTENT ───────────────────────────────── */
     .menu-body {
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto;
-      padding: 0 20px 60px;
+      padding: 0 24px 72px;
     }
 
     /* ─── SECTION WRAPPER ─────────────────────────────── */
     .menu-section {
-      padding: 44px 0 32px;
+      padding: 52px 0 40px;
       border-bottom: 1px solid rgba(197,160,89,0.2);
     }
     .menu-section:last-of-type { border-bottom: none; }
 
     /* ─── SECTION TITLES ─────────────────────────────── */
     .section-title {
-      font-family: var(--font-title);
-      font-size: clamp(1.3rem, 5vw, 1.7rem);
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      color: var(--ink);
-      text-align: center;
-      margin-bottom: 6px;
-    }
-    .section-title--gold {
-      font-family: var(--font-gold);
+      font-family: var(--font-section);
+      font-size: clamp(1.5rem, 6vw, 2rem);
+      font-weight: normal;
+      letter-spacing: 0.08em;
       color: var(--gold);
-      font-size: clamp(1.4rem, 6vw, 1.9rem);
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: 0.06em;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .section-title--plain {
+      color: var(--ink);
+      font-size: clamp(1.3rem, 5vw, 1.7rem);
     }
     .section-sub {
-      font-family: var(--font-desc);
-      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
       font-style: italic;
       color: var(--ink-light);
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
+      letter-spacing: 0.06em;
     }
-/*    .section-divider {
+    .section-divider {
       width: 48px;
       height: 1px;
       background: var(--gold);
-      margin: 10px auto 28px;
+      margin: 10px auto 32px;
+      opacity: 0.7;
     }
 
-    /* ─── ORNATE FRAME (Chef's Offer & Plant-Based) ─────── */
+    /* ─── ORNATE FRAME ────────────────────────────────── */
     .ornate-frame {
       position: relative;
       border: 1.5px solid var(--gold);
-      padding: 36px 28px 32px;
+      padding: 40px 32px 36px;
       background: var(--paper);
     }
     .ornate-frame::before,
@@ -259,122 +238,135 @@
     .ornate-frame-wrap {
       padding: 8px;
       border: 1px solid rgba(197,160,89,0.35);
-      margin-bottom: 4px;
       background: var(--cream);
     }
 
-    /* ─── MENU ITEM ──────────────────────────────────── */
-    .menu-item { margin-bottom: 24px; }
+    /* ─── MENU ITEMS ─────────────────────────────────── */
+    .menu-item { margin-bottom: 26px; }
     .menu-item:last-child { margin-bottom: 0; }
 
     /* Style A: centered (Chef's Offer) */
     .menu-item--centered { text-align: center; }
     .menu-item--centered .item-name {
-      font-family: var(--font-title);
-      font-size: 1.05rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      letter-spacing: 0.16em;
       color: var(--ink);
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
     }
     .menu-item--centered .item-desc {
-      font-family: var(--font-desc);
-      font-size: 1.05rem;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
       font-style: italic;
       color: var(--ink-mid);
       display: block;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
     }
     .menu-item--centered .item-allergens {
-      font-family: var(--font-util);
-      font-size: 0.62rem;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
       letter-spacing: 0.1em;
       color: var(--ink-light);
     }
 
     /* Style B: dot-leader */
-    .menu-item--leader { margin-bottom: 18px; }
+    .menu-item--leader { margin-bottom: 20px; }
     .item-leader-row {
       display: flex;
       align-items: baseline;
       gap: 4px;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .item-leader-row .item-name {
-      font-family: var(--font-gold);
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
       color: var(--gold);
       flex-shrink: 0;
       white-space: nowrap;
+      text-transform: uppercase;
     }
     .item-leader-row .dots {
       flex: 1;
       border-bottom: 1px dotted rgba(197,160,89,0.5);
-      margin: 0 6px 3px;
+      margin: 0 8px 3px;
       min-width: 20px;
     }
     .item-leader-row .item-badge {
-      font-family: var(--font-util);
+      font-family: var(--font-body);
       font-size: 0.6rem;
-      font-weight: 500;
       letter-spacing: 0.06em;
       color: var(--ink-light);
       flex-shrink: 0;
     }
     .item-desc-block {
-      font-family: var(--font-desc);
-      font-size: 1rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
       font-style: italic;
       color: var(--ink-mid);
-      line-height: 1.5;
+      line-height: 1.55;
+      letter-spacing: 0.03em;
     }
 
     /* Style C: simple list */
     .item-simple {
-      font-family: var(--font-gold);
-      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
       letter-spacing: 0.1em;
       color: var(--gold);
+      text-transform: uppercase;
       margin-bottom: 10px;
     }
     .item-simple:last-child { margin-bottom: 0; }
 
-    /* ─── GRID: two-col for Salads+Sides ────────────── */
+    /* ─── TWO-COL: Salads + Sides ────────────────────── */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0 28px;
+      gap: 0 32px;
     }
-    @media (max-width: 400px) {
-      .two-col { grid-template-columns: 1fr; }
+    @media (max-width: 440px) {
+      .two-col { grid-template-columns: 1fr; gap: 32px 0; }
     }
 
-    /* ─── EXTRA BREAD ROW (+ lines in Plant-Based) ──── */
+    /* ─── SUB-COLUMN TITLES (Salads & Pickles / Sides) ── */
+    .col-title {
+      font-family: var(--font-section);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(197,160,89,0.3);
+    }
+
+    /* ─── EXTRA BREAD ROW ────────────────────────────── */
     .extra-row {
       display: flex;
       align-items: baseline;
       gap: 4px;
-      margin-top: 6px;
+      margin-top: 8px;
       margin-bottom: 4px;
     }
     .extra-row .extra-label {
-      font-family: var(--font-desc);
+      font-family: var(--font-body);
       font-size: 0.88rem;
       font-style: italic;
       color: var(--ink-mid);
       flex-shrink: 0;
+      letter-spacing: 0.04em;
     }
     .extra-row .dots {
       flex: 1;
       border-bottom: 1px dotted rgba(197,160,89,0.4);
-      margin: 0 6px 3px;
+      margin: 0 8px 3px;
       min-width: 12px;
     }
     .extra-row .item-badge {
-      font-family: var(--font-util);
+      font-family: var(--font-body);
       font-size: 0.6rem;
       color: var(--ink-light);
       flex-shrink: 0;
@@ -384,41 +376,41 @@
     .allergen-footer {
       background: var(--paper);
       border-top: 1px solid rgba(197,160,89,0.25);
-      padding: 32px 24px 40px;
-      max-width: 600px;
+      padding: 36px 24px 48px;
+      max-width: 620px;
       margin: 0 auto;
     }
     .allergen-footer__title {
-      font-family: var(--font-title);
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+      font-family: var(--font-section);
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
       color: var(--ink-mid);
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .allergen-footer__text {
-      font-family: var(--font-desc);
-      font-size: 0.9rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
       font-style: italic;
       color: var(--ink-light);
       text-align: center;
-      line-height: 1.75;
-      margin-bottom: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
     }
     .allergen-footer__legend {
-      font-family: var(--font-util);
-      font-size: 0.6rem;
-      letter-spacing: 0.06em;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
       color: var(--ink-light);
       text-align: center;
-      line-height: 2;
+      line-height: 2.1;
     }
 
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 380px) {
-      .menu-body { padding: 0 14px 60px; }
-      .ornate-frame { padding: 28px 18px 24px; }
+      .menu-body { padding: 0 16px 60px; }
+      .ornate-frame { padding: 30px 20px 26px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -443,7 +435,7 @@
       <a href="#soup">Soup</a>
       <a href="#main">Main Course</a>
       <a href="#vegetarian">Vegetarian</a>
-      <a href="#salads">Salads & Sides</a>
+      <a href="#salads">Salads &amp; Sides</a>
       <a href="#dessert">Dessert</a>
     </div>
   </nav>
@@ -458,9 +450,8 @@
           <div class="corner-bl"></div>
           <div class="corner-br"></div>
 
-          <h2 class="section-title" style="margin-bottom:4px;">CHEF'S OFFER</h2>
+          <h2 class="section-title section-title--plain">CHEF'S OFFER</h2>
           <p class="section-sub">Every day between 11:00 am &amp; 15:00 pm</p>
-          <div class="section-divider"></div>
 
           <div class="menu-item menu-item--centered">
             <span class="item-name">WIENER SCHNITZEL</span>
@@ -496,13 +487,13 @@
             <span class="item-desc">with parsley potatoes<br>&amp; tartar sauce</span>
             <span class="item-allergens">1, 3, 4, 7</span>
           </div>
-        </div><!-- /ornate-frame -->
-      </div><!-- /ornate-frame-wrap -->
+        </div>
+      </div>
     </section>
 
     <!-- ── STARTER ──────────────────────────────────────── -->
     <section class="menu-section" id="starter">
-      <h2 class="section-title--gold section-title">Starter</h2>
+      <h2 class="section-title">Starter</h2>
       <div class="section-divider"></div>
 
       <div class="menu-item menu-item--leader">
@@ -570,7 +561,7 @@
 
     <!-- ── SOUP ─────────────────────────────────────────── -->
     <section class="menu-section" id="soup">
-      <h2 class="section-title--gold section-title">Soup</h2>
+      <h2 class="section-title">Soup</h2>
       <div class="section-divider"></div>
 
       <div class="menu-item menu-item--leader">
@@ -621,7 +612,7 @@
 
     <!-- ── MAIN COURSES ─────────────────────────────────── -->
     <section class="menu-section" id="main">
-      <h2 class="section-title--gold section-title">Main Course</h2>
+      <h2 class="section-title">Main Course</h2>
       <div class="section-divider"></div>
 
       <div class="menu-item menu-item--leader">
@@ -643,7 +634,7 @@
 
       <div class="menu-item menu-item--leader">
         <div class="item-leader-row">
-          <span class="item-name">ROASTED PORK CUTLETS<br>"BAKONYI" STYLE</span>
+          <span class="item-name">ROASTED PORK CUTLETS "BAKONYI" STYLE</span>
           <span class="dots"></span>
           <span class="item-badge">LF &nbsp;/&nbsp; 1, 3, 7</span>
         </div>
@@ -661,7 +652,7 @@
 
       <div class="menu-item menu-item--leader">
         <div class="item-leader-row">
-          <span class="item-name">PORK TENDERLOINS<br>WITH ONIONS A LA LYONNAISE</span>
+          <span class="item-name">PORK TENDERLOINS WITH ONIONS A LA LYONNAISE</span>
           <span class="dots"></span>
           <span class="item-badge">LF &nbsp;/&nbsp; 1</span>
         </div>
@@ -730,7 +721,7 @@
 
       <div class="menu-item menu-item--leader">
         <div class="item-leader-row">
-          <span class="item-name">BREADED CHICKEN<br>WITH CHESTNUT STUFFING</span>
+          <span class="item-name">BREADED CHICKEN WITH CHESTNUT STUFFING</span>
           <span class="dots"></span>
           <span class="item-badge">1, 3, 7</span>
         </div>
@@ -740,8 +731,7 @@
 
     <!-- ── VEGETARIAN & PLANT-BASED ─────────────────────── -->
     <section class="menu-section" id="vegetarian">
-
-      <h2 class="section-title--gold section-title">Vegetarian</h2>
+      <h2 class="section-title">Vegetarian</h2>
       <div class="section-divider"></div>
 
       <div class="menu-item menu-item--leader">
@@ -799,13 +789,13 @@
       </div>
 
       <!-- 100% Plant-based ornate frame -->
-      <div style="margin-top: 36px;">
+      <div style="margin-top: 44px;">
         <div class="ornate-frame-wrap">
           <div class="ornate-frame">
             <div class="corner-bl"></div>
             <div class="corner-br"></div>
 
-            <h3 class="section-title--gold section-title" style="margin-bottom:4px;">100% Plant-Based</h3>
+            <h3 class="section-title" style="font-size: clamp(1.2rem, 5vw, 1.6rem); margin-bottom: 8px;">100% Plant-Based</h3>
             <div class="section-divider"></div>
 
             <div class="menu-item menu-item--leader">
@@ -844,7 +834,7 @@
               <div class="item-desc-block">roasted red pepper dip with toasted walnuts &amp; pomegranate</div>
             </div>
 
-            <div class="menu-item menu-item--leader" style="margin-bottom:16px;">
+            <div class="menu-item menu-item--leader" style="margin-bottom: 20px;">
               <div class="item-leader-row">
                 <span class="item-name">PAELLA</span>
                 <span class="dots"></span>
@@ -853,7 +843,6 @@
               <div class="item-desc-block">steamed turmeric rice with roasted garden vegetables &amp; crispy chickpeas</div>
             </div>
 
-            <!-- Extra bread options with + prefix -->
             <div class="extra-row">
               <span class="extra-label">+ with bread of your choice</span>
               <span class="dots"></span>
@@ -864,38 +853,36 @@
               <span class="dots"></span>
               <span class="item-badge">LF</span>
             </div>
-
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- ── SALADS, PICKLES & SIDES ──────────────────────── -->
     <section class="menu-section" id="salads">
-      <h2 class="section-title--gold section-title">Salads &amp; Sides</h2>
+      <h2 class="section-title">Salads &amp; Sides</h2>
       <div class="section-divider"></div>
 
       <div class="two-col">
         <!-- Left: Salads & Pickles -->
         <div>
-          <p style="font-family:var(--font-title); font-size:0.65rem; letter-spacing:0.22em; color:var(--ink-light); text-transform:uppercase; margin-bottom:16px;">Salads &amp; Pickles</p>
+          <p class="col-title">Salads &amp; Pickles</p>
 
-          <div class="menu-item menu-item--leader" style="margin-bottom:14px;">
+          <div class="menu-item menu-item--leader" style="margin-bottom:16px;">
             <div class="item-leader-row">
               <span class="item-name">GREEN SALAD</span>
             </div>
             <div class="item-desc-block">with pumpkin seed oil</div>
           </div>
 
-          <div class="menu-item menu-item--leader" style="margin-bottom:14px;">
+          <div class="menu-item menu-item--leader" style="margin-bottom:16px;">
             <div class="item-leader-row">
               <span class="item-name">MIXED GREEN SALAD</span>
             </div>
             <div class="item-desc-block">with fresh garden veggies &amp; pumpkin seed oil</div>
           </div>
 
-          <div class="menu-item menu-item--leader" style="margin-bottom:14px;">
+          <div class="menu-item menu-item--leader" style="margin-bottom:16px;">
             <div class="item-leader-row">
               <span class="item-name">CUCUMBER SALAD</span>
             </div>
@@ -906,7 +893,7 @@
           <div class="item-simple">Pickled Cabbage</div>
           <div class="item-simple">Hot Pickled Apple Peppers</div>
 
-          <div class="menu-item menu-item--leader" style="margin-top:30px; margin-bottom:14px;">
+          <div class="menu-item menu-item--leader" style="margin-top:28px; margin-bottom:16px;">
             <div class="item-leader-row">
               <span class="item-name">GREEK SALAD</span>
               <span class="dots"></span>
@@ -915,7 +902,7 @@
             <div class="item-desc-block">chunchy vegetables, olives and feta, dressed in olive oil &amp; oregano</div>
           </div>
 
-          <div class="menu-item menu-item--leader" style="margin-bottom:14px;">
+          <div class="menu-item menu-item--leader" style="margin-bottom:16px;">
             <div class="item-leader-row">
               <span class="item-name">GRILLED CHICKEN SALAD</span>
               <span class="dots"></span>
@@ -936,30 +923,30 @@
 
         <!-- Right: Sides -->
         <div>
-          <p style="font-family:var(--font-title); font-size:0.65rem; letter-spacing:0.22em; color:var(--ink-light); text-transform:uppercase; margin-bottom:16px;">Sides</p>
+          <p class="col-title">Sides</p>
 
           <div class="item-simple">Parsley Potatoes</div>
           <div class="item-simple">Seared Potatoes</div>
           <div class="item-simple">Steamed Rice</div>
           <div class="item-simple">French Fries</div>
 
-          <div class="menu-item menu-item--leader" style="margin-bottom:10px;">
+          <div class="menu-item menu-item--leader" style="margin-top:12px; margin-bottom:12px;">
             <div class="item-leader-row">
-              <span class="item-name">Croquet</span>
+              <span class="item-name">CROQUET</span>
               <span class="dots"></span>
               <span class="item-badge">1, 3, 7</span>
             </div>
           </div>
-          <div class="menu-item menu-item--leader" style="margin-bottom:10px;">
+          <div class="menu-item menu-item--leader" style="margin-bottom:12px;">
             <div class="item-leader-row">
-              <span class="item-name">Dumplings</span>
+              <span class="item-name">DUMPLINGS</span>
               <span class="dots"></span>
               <span class="item-badge">LF &nbsp;/&nbsp; 1, 3</span>
             </div>
           </div>
           <div class="menu-item menu-item--leader" style="margin-bottom:0;">
             <div class="item-leader-row">
-              <span class="item-name">Steamed Vegetables</span>
+              <span class="item-name">STEAMED VEGETABLES</span>
               <span class="dots"></span>
               <span class="item-badge">9</span>
             </div>
@@ -970,7 +957,7 @@
 
     <!-- ── DESSERT ───────────────────────────────────────── -->
     <section class="menu-section" id="dessert">
-      <h2 class="section-title--gold section-title">Dessert</h2>
+      <h2 class="section-title">Dessert</h2>
       <div class="section-divider"></div>
 
       <div class="menu-item menu-item--leader">
@@ -979,7 +966,7 @@
           <span class="dots"></span>
           <span class="item-badge">VG, GF &nbsp;/&nbsp; 1, 3, 7, 8</span>
         </div>
-        <div class="item-desc-block">with vanilla cream, rum soaked raisins, chopped walnuts,<br> topped with whipped cream &amp; chocolate sauce</div>
+        <div class="item-desc-block">with vanilla cream, rum soaked raisins, chopped walnuts,<br>topped with whipped cream &amp; chocolate sauce</div>
       </div>
 
       <div class="menu-item menu-item--leader">
@@ -1017,18 +1004,19 @@
         </div>
         <div class="item-desc-block">filled with blueberry marmelade</div>
       </div>
-      <p style="font-family:var(--font-desc); font-size:0.88rem; font-style:italic; color:var(--gold); text-align:center; margin-top:28px; line-height:1.6;">
+
+      <p style="font-family:'Poiret One', sans-serif; font-size:0.85rem; font-style:italic; color:var(--gold); text-align:center; margin-top:32px; line-height:1.75; letter-spacing:0.04em;">
         All desserts of ours are vegetarian.<br>
         To find out what vegan seasonal offers are available, please ask our colleagues.
       </p>
     </section>
 
-  </main><!-- /menu-body -->
+  </main>
 
   <!-- ════════════ ALLERGEN FOOTER ═════════════════════ -->
   <footer class="allergen-footer">
-    <div class="header-rule" style="margin-bottom:20px;"><span>✦</span></div>
-    <p class="allergen-footer__title">ALLERGENS</p>
+    <div class="header-rule" style="margin-bottom:24px;"><span>✦</span></div>
+    <p class="allergen-footer__title">Allergens</p>
     <p class="allergen-footer__text">
       In case of any kind of food allergy or hypersensitivity to any ingredient please advise our colleagues before ordering. We will do all we can to accommodate these requirements, though please note that certain alterations may not be possible. Our foods may contain traces of additional allergens in addition to allergens labeled as ingredients.
     </p>
@@ -1037,11 +1025,11 @@
       8. treenuts &nbsp;·&nbsp; 9. celery &nbsp;·&nbsp; 10. mustard &nbsp;·&nbsp; 11. sesam seed &nbsp;·&nbsp; 12. sulphur dioxide<br>
       13. lupin &nbsp;·&nbsp; 14. molluscs
     </p>
-    <div class="header-rule" style="margin: 18px auto 14px;"><span>✦</span></div>
-    <p class="allergen-footer__text" style="margin-bottom:6px;">
+    <div class="header-rule" style="margin: 22px auto 16px;"><span>✦</span></div>
+    <p class="allergen-footer__text" style="margin-bottom:8px;">
       Prices can be viewed in person at the restaurant.
     </p>
-    <p class="allergen-footer__legend" style="letter-spacing:0.12em; font-size:0.65rem; color:var(--ink-mid);">
+    <p class="allergen-footer__legend" style="letter-spacing:0.12em; font-size:0.62rem; color:var(--ink-mid);">
       V – vegan &nbsp;/&nbsp; VG – vegetarian &nbsp;/&nbsp; LF – lactosefree &nbsp;/&nbsp; GF – glutenfree
     </p>
   </footer>
